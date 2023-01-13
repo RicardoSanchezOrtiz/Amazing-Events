@@ -64,7 +64,7 @@
             </div>
         </form>
         <div id="contenedorCards" class="d-flex justify-content-evenly flex-wrap">  
-            <div class="card shadow p-3 mb-5 bg-body rounded" v-if="list" v-for ="element of selection" style="width: 18rem;">
+            <div class="card shadow p-3 mb-5 bg-body rounded" v-if="selection.length !== 0" v-for ="element of selection" style="width: 18rem;">
                 <img v-bind:src="element.image" class="card-img-top" v-bind:alt="element.name">
                 <div class="card-body d-flex flex-column justify-content-between">
                   <h5 class="card-title">{{element.name}}</h5>
@@ -72,6 +72,11 @@
                   <p class="card-text">{{element.date}}</p>
                   <a :href="'/details.html?id=' + element._id" class="detailsButton">Details</a>
                 </div>
+            </div>
+            <div v-else>
+              <h3 class="my-5">Your search was unsuccessful</h3>
+              <h4>Please, try another search</h4>
+              <h4>Toggle the categories you wish to see and look for the name of the event you're looking for</h4>`
             </div>
       </div>
     </main>
